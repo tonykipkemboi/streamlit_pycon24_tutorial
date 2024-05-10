@@ -12,7 +12,7 @@ from llama_index.llms.groq import Groq
 st.set_page_config(
     page_title="Chat with your repo",
     page_icon="💬",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded",
 )
 
