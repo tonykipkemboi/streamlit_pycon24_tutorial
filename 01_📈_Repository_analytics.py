@@ -187,8 +187,7 @@ def main():
                     "value": "Number of Contributions",
                     "variable": "Type of Contribution",
                 },
-                title=f"Interactive Contributions of {
-                    selected_user} Over Time",
+                title=f"Interactive Contributions of {selected_user} Over Time",
             )
             fig.update_traces(mode="lines+markers")
 
