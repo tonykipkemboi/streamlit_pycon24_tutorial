@@ -27,8 +27,7 @@ def load_data(filepath: str) -> DataFrame:
         return data
     except FileNotFoundError:
         st.error(
-            f"File not found: {
-                filepath}. Please check the file path.",
+            f"File not found: {filepath}. Please check the file path.",
             icon="🚨",
         )
     except pd.errors.EmptyDataError:
