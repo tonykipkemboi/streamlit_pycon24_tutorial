@@ -101,8 +101,7 @@ def main():
         st.subheader("Total commits over the past year")
         st.info("Track total number of commits.", icon="ℹ️")
 
-        commit_activity_data = load_data(
-            "data/streamlit_commit_activity_stats.csv")
+        commit_activity_data = load_data("data/streamlit_commit_activity_stats.csv")
         commit_activity_data["week"] = pd.to_datetime(
             commit_activity_data["week"], unit="s"
         )
@@ -113,8 +112,7 @@ def main():
         # Display metrics for commit activity
         total_commits = commit_activity_data["total"].sum()
         average_commits = commit_activity_data["total"].mean()
-        weekly_change = commit_activity_data["total"].pct_change(
-        ).iloc[-1] * 100
+        weekly_change = commit_activity_data["total"].pct_change().iloc[-1] * 100
         col1, col2, col3 = st.columns(3)
         col1.metric("Total Commits", int(total_commits))
         col2.metric("Average Weekly Commits", f"{average_commits:.2f}")
@@ -129,12 +127,10 @@ def main():
         # Load and preprocess contributor data
         contributor_data = load_data("data/streamlit_contributor_stats.csv")
         contributor_data.rename(
-            columns={"a": "additions", "d": "deletions",
-                     "c": "commits", "w": "date"},
+            columns={"a": "additions", "d": "deletions", "c": "commits", "w": "date"},
             inplace=True,
         )
-        contributor_data["date"] = pd.to_datetime(
-            contributor_data["date"], unit="s")
+        contributor_data["date"] = pd.to_datetime(contributor_data["date"], unit="s")
 
         # Drop columns not needed for the analysis
         columns_to_drop = [
@@ -167,8 +163,7 @@ def main():
         selected_user = st.selectbox("Select a User", user_list)
 
         # Filter data for the selected user and adjust date range using a slider
-        user_data = contributor_data[contributor_data["author_login"]
-                                     == selected_user]
+        user_data = contributor_data[contributor_data["author_login"] == selected_user]
         min_date = user_data["date"].min().to_pydatetime()
         max_date = user_data["date"].max().to_pydatetime()
         start_date, end_date = st.slider(
