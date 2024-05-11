@@ -3,7 +3,7 @@ import openai
 from llama_index.llms.openai import OpenAI
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 
-openai.api_key = st.secrets.openai_api_key
+openai.api_key = st.secrets.OPENAI_API_KEY
 st.title("Chat with the Streamlit docs, powered by LlamaIndex")
 
 reader = SimpleDirectoryReader(input_dir="./docs", recursive=True)
