@@ -14,7 +14,7 @@ def load_data(filepath):
 def main():
     st.set_page_config(layout="wide", page_icon="📊")
 
-    st.title('GitHub Repository Analytics Dashboard 📊', anchor=False)
+    st.title('📊 GitHub repository analytics dashboard', anchor=False)
 
     tab1, tab2, tab3 = st.tabs(
         ["⏰ Code frequency", "📬 Commit activity", "👩‍💻 Contributors"])
@@ -70,23 +70,25 @@ def main():
         st.subheader('Total Commits Over Time')
         commit_activity_data = load_data(
             'data/streamlit_stats_commit_activity.csv')
+
+        commit_activity_data['week'] = pd.to_datetime(
+            commit_activity_data['week'], unit='s')
+
         with st.expander("Show raw data"):
             st.dataframe(commit_activity_data)
         total_commits = commit_activity_data['total'].sum()
         average_commits = commit_activity_data['total'].mean()
         weekly_change = commit_activity_data['total'].pct_change(
-        ).iloc[-1] * 100  # last element percentage change
+        ).iloc[-1] * 100
 
         col1, col2, col3 = st.columns(3)
-        col1.metric(label="Total Commits", value=int(
+        col1.metric(label="Total commits", value=int(
             total_commits))
-        col2.metric(label="Average Weekly Commits",
+        col2.metric(label="Average weekly commits",
                     value=f"{average_commits:.2f}")
-        col3.metric(label="Week-onWeek Change",
+        col3.metric(label="Week-over-week change",
                     value=f"{weekly_change:.2f}%")
 
-        commit_activity_data['week'] = pd.to_datetime(
-            commit_activity_data['week'], unit='s')
         st.bar_chart(commit_activity_data.set_index('week')['total'])
 
     with tab3:
