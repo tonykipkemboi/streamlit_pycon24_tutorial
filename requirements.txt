@@ -2,9 +2,3 @@ streamlit==1.34
 plotly
 openai
 llama-index
-langchain
-langchain-community
-sentence-transformers
-llama-index-llms-groq
-llama-index-readers-github
-llama-index-embeddings-huggingface
