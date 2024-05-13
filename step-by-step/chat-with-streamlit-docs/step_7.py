@@ -4,7 +4,7 @@ from llama_index.llms.openai import OpenAI
 from llama_index.core import VectorStoreIndex, SimpleDirectoryReader, Settings
 
 openai.api_key = st.secrets.OPENAI_API_KEY
-st.title("Chat with the Streamlit docs, powered by LlamaIndex ")
+st.title("Chat with the Streamlit docs")
 
 if "messages" not in st.session_state.keys():  # Initialize the chat messages history
     st.session_state.messages = [
@@ -17,7 +17,6 @@ if "messages" not in st.session_state.keys():  # Initialize the chat messages hi
 for message in st.session_state.messages:  # Display the prior chat messages
     with st.chat_message(message["role"]):
         st.write(message["content"])
-
 
 @st.cache_resource()
 def load_data():
