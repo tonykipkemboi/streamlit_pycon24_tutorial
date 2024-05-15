@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 from pandas import DataFrame
 
-
 @st.cache_data
 def load_data(filepath: str) -> DataFrame:
     """
@@ -144,3 +143,6 @@ def main():
 
         with st.expander("Show raw data"):
             st.dataframe(contributor_data)
+
+if __name__ == "__main__":
+    main()
