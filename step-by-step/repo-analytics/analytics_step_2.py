@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 from pandas import DataFrame
 
-
 @st.cache_data
 def load_data(filepath: str) -> DataFrame:
     """
@@ -36,7 +35,6 @@ def load_data(filepath: str) -> DataFrame:
         st.error(f"An error occurred while loading the data: {e}", icon="🚨")
     return pd.DataFrame()  # Return an empty DataFrame if any error occurs
 
-
 def main():
     st.set_page_config(layout="wide", page_icon="📊")
     st.title("📊 GitHub Repository Analytics Dashboard", anchor=False)
@@ -45,3 +43,6 @@ def main():
     tab1, tab2, tab3 = st.tabs(
         ["⏰ Code Frequency", "📬 Commit Activity", "👩‍💻 Contributors"]
     )
+
+if __name__ == "__main__":
+    main()
