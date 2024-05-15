@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 from pandas import DataFrame
 
-
 @st.cache_data
 def load_data(filepath: str) -> DataFrame:
     """
@@ -118,3 +117,6 @@ def main():
         col3.metric("Week-over-Week Change", f"{weekly_change:.2f}%")
 
         st.bar_chart(commit_activity_data.set_index("week")["total"])
+
+if __name__ == "__main__":
+    main()
