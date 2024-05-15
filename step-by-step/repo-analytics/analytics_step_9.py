@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 from pandas import DataFrame
 
-
 @st.cache_data
 def load_data(filepath: str) -> DataFrame:
     """
@@ -175,3 +174,6 @@ def main():
         filtered_data = user_data[
             (user_data["date"] >= start_date) & (user_data["date"] <= end_date)
         ]
+
+if __name__ == "__main__":
+    main()
