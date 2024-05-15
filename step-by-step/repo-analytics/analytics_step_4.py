@@ -75,3 +75,6 @@ def main():
             (code_freq_data["week"] >= start_week)
             & (code_freq_data["week"] <= end_week)
         ]
+
+if __name__ == "__main__":
+    main()
