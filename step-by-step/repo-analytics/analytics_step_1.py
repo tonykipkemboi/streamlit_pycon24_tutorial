@@ -3,7 +3,6 @@ import pandas as pd
 import plotly.express as px
 from pandas import DataFrame
 
-
 @st.cache_data
 def load_data(filepath: str) -> DataFrame:
     """
@@ -35,3 +34,6 @@ def load_data(filepath: str) -> DataFrame:
     except Exception as e:
         st.error(f"An error occurred while loading the data: {e}", icon="🚨")
     return pd.DataFrame()  # Return an empty DataFrame if any error occurs
+
+if __name__ == "__main__":
+    main()
